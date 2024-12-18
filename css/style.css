@@ -1,0 +1,372 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    background: linear-gradient(270deg, #6a11cb, #2575fc);
+    background-image: url('../images/background.jpg');
+    background-size: cover; /* Ensures the image covers the entire page */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    position: relative; /* To allow positioning of pseudo-element */
+    animation: animateBackground 15s infinite ease-in-out;
+}
+
+body::before {
+    content: ""; /* Necessary for pseudo-elements */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black with 50% transparency */
+    z-index: -1; /* Places it behind all content */
+}
+
+/* Ensure content stays above the overlay */
+header, main, footer, nav {
+    position: relative;
+    z-index: 1;
+}
+
+/* Fade-in effect for the entire page */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes animateBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Top Bar Navigation */
+nav.top-bar {
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    animation: slideInNav 0.5s ease-out;
+}
+
+/* Slide-in effect for navigation */
+@keyframes slideInNav {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+nav.top-bar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+nav.top-bar li {
+    margin: 0 20px;
+}
+
+nav.top-bar a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+nav.top-bar a:hover {
+    background-color: #575757;
+}
+
+/* Main header styles */
+header {
+    background-image: url('images/header-background.jpg'); /* Add your image path here */
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    color: white;
+    text-align: center;
+    padding: 3rem 0;
+    margin-top: 55px; /* To prevent the content from being hidden under the fixed navbar */
+    animation: slideInHeader 1s ease-out;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    font-family: 'Poppins', sans-serif; /* Use Google Fonts */
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+}
+
+/* Slide-in effect for the header */
+@keyframes slideInHeader {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* General page content styling */
+main {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh; /* Adjust the height of the main section */
+}
+
+/* Button Styles */
+.button {
+    width: 200px;
+    max-width: 100%;
+    min-width: 140px;
+    height: 40px;
+    background-color: #000;
+    background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Horizontally centers the text */
+    color: white;
+    flex-direction: column;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+    padding: 3px;
+    text-decoration: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    user-select: none;
+    font-size: 18px;
+    margin-top: 20px;
+    line-height: 1em;
+    white-space: nowrap;
+    animation: fadeInUp 1s ease-out;
+    margin-right: auto;
+    margin-left: auto;
+    transition: all 0.3s;
+}
+
+/* Hover effect for button */
+.button:active,
+.button:hover {
+    background-color: #575757;
+    outline: 0;
+}
+
+.button span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.button:hover span {
+  background: none;
+}
+
+.button:active {
+  transform: scale(0.9);
+}
+
+
+/* Fade-in and slide-up effect for the button */
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #333;
+    color: white;
+    animation: fadeInFooter 1s ease-out;
+}
+
+/* Fade-in effect for the footer */
+@keyframes fadeInFooter {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Styling for the biodata table */
+table {
+    width: 100%; /* Full-width table */
+    border-collapse: collapse;
+    margin: 20px auto; /* Centers the table */
+    background-color: #6e4b41; /* General table background color */
+    color: #ffffff; /* Text color for better readability */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for depth */
+    animation: fadeInTable 1s ease-out;
+}
+
+/* Fade-in effect for the table */
+@keyframes fadeInTable {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Header Styling */
+table th {
+    background-color: #452920;
+    color: #fff;
+    font-weight: bold;
+    padding: 17px;
+    border: 1px solid #6e4b41;
+    text-transform: uppercase;
+}
+
+/* Cell Styling */
+table td {
+    padding: 17px;
+    text-align: center;
+    border: 1px solid #4a3731;
+}
+
+/* Odd Row Styling */
+table tr:nth-child(odd) {
+    background-color: #a36358;
+}
+
+/* Even Row Styling */
+table tr:nth-child(even) {
+    background-color: #a14130;
+}
+
+/* Hover Effect */
+table tr:hover {
+    background-color: #5b332b;
+    color: #fff;
+}
+
+/* Profile Image Styling */
+.profile-image {
+    width: 250px;
+    height: auto; 
+    border-radius: 50%; 
+    margin-top: 20px;
+    border: 4px solid transparent;
+    animation: borderPulse 3s infinite ease-in-out;
+    box-shadow: 5px 7px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes borderPulse {
+    0%, 100% {
+        border-color: #6a11cb;
+    }
+    50% {
+        border-color: #2575fc;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 361px;
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 1px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Page Loader */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #333;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loader::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    border: 5px solid #fff;
+    border-top-color: #ff9800;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.project-card img {
+    width: 100%; /* Makes all images responsive */
+    max-width: 100px; /* Limits the image width */
+    height: auto; /* Keeps aspect ratio */
+    display: block;
+    margin: 0 auto; /* Centers the image */
+}
+
+.projects-container .project-card:nth-child(1) img {
+    max-width: 100px; /* Specifically targets the first project's image */
+}
